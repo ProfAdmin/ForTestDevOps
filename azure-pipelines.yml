@@ -46,7 +46,7 @@ steps:
     arguments: '--configuration $(buildConfiguration) --no-restore'
 - task: DotNetCoreCLI@2
   inputs:
-    command: publish
+    command: build
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
