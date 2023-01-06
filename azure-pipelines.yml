@@ -30,6 +30,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
+    projects: '**/*Tests/*.csproj'
     feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
