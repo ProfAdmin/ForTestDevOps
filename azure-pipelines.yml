@@ -23,6 +23,8 @@ steps:
     installationPath: $(Agent.ToolsDirectory)/dotnet
 - task: NuGetToolInstaller@1
 
+- script: |
+    printenv
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
