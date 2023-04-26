@@ -53,4 +53,5 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'forTest'
+    artifactName: 'forTest_$(Build.SourceVersionAuthor)'
+  condition: eq(variables['Build.SourceVersionAuthor'], 'John Doe')
