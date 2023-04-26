@@ -25,10 +25,7 @@ steps:
 
 - script: echo "hello world"
   displayName: 'Echo Hello World for John Doe and Jane Smith'
-  condition: |
-    and(
-      in(variables['Build.SourceVersionAuthor'], 'John Doe', 'Jane Smith')
-    )
+  condition: eq(variables['Build.SourceVersionAuthor'], 'John Doe')
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
