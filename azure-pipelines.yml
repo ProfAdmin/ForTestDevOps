@@ -25,7 +25,7 @@ steps:
 
 - script: echo "hello world"
   displayName: 'Echo Hello World for John Doe and Jane Smith'
-  condition: eq(variables['Build.SourceVersionAuthor'], 'John Doe')
+  condition: in(variables['Build.SourceVersionAuthor'], 'John Doe', 'ProfAdmin')
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
@@ -55,3 +55,9 @@ steps:
     targetPath: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'forTest_$(Build.SourceVersionAuthor)'
   condition: eq(variables['Build.SourceVersionAuthor'], 'John Doe')
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'forTest_$(Build.SourceVersionAuthor)'
+  condition: in(variables['Build.SourceVersionAuthor'], 'Profadmin')
