@@ -23,8 +23,12 @@ steps:
     installationPath: $(Agent.ToolsDirectory)/dotnet
 - task: NuGetToolInstaller@1
 
-- script: |
-    set
+- script: echo "hello world"
+  displayName: 'Echo Hello World for John Doe and Jane Smith'
+  condition: |
+    and(
+      in(variables['Build.SourceVersionAuthor'], 'John Doe', 'Jane Smith')
+    )
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
