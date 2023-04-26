@@ -10,8 +10,8 @@ namespace ClassLibrary1.Tests
         [Test]
         public void Test1()
         {
-            int x = 20; int y = 20;
-            int expected = 40;
+            int x = 30; int y = 20;
+            int expected = 50;
 
             MyCalc calc= new MyCalc();
             int actual = calc.Sum(x,y);
